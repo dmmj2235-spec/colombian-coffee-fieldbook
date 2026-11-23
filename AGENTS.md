@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Manual editor
+- Keep the imported source content in `src/data/manual.json`; fidelity tests compare its text tokens and table/image counts to an independent extraction of the original DOCX.
+- Persist the document in browser IndexedDB and provide JSON backups because the user selected device-local editing without accounts.
+- Store the institutional header separately from body pages to synchronize editable fields while preserving its original merged-cell structure.
+- Normalize all page insertion/reorder/import operations with `keepChangesLast` so change control always remains last.
+- Preserve embedded source diagrams as images; do not silently replace or reinterpret their text. Image replacement and annotations must be explicit user edits.
